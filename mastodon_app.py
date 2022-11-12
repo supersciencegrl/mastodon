@@ -16,10 +16,12 @@ mastodon = Mastodon(
     api_base_url = 'https://toot.cat'
     )
 
+with open('userinfo.dat', 'r') as fin:
+    USER, PASSWORD = fin.readlines().replace('\r', '').replace('\n', '')
 
 mastodon.log_in(
-    'methionine57@gmail.com',
-    r"O<lE@c+`rn,>,D8*",
+    USER,
+    PASSWORD,
     scopes = ['write', 'follow', 'push'],
     to_file = 'pytooter_usercred.secret'
     )
@@ -33,6 +35,6 @@ mastodon = Mastodon(
 
 #mastodon.toot('Test toot using Python with #mastodonpy! If you can read this, I was successful :D')
 
-user = r"drlabratory@mastodon.social"
+user = r"drlabratory@mastodon.social" # #Testing follows
 #user_dict = mastodon.account_follow(user, reblogs=True)
 
